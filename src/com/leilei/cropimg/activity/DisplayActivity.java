@@ -1,4 +1,4 @@
-package com.leilei.cropimg;
+package com.leilei.cropimg.activity;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import com.leilei.cropimg.R;
 
 /**
  * USER: liulei

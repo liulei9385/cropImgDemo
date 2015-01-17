@@ -1,4 +1,4 @@
-package com.leilei.cropimg;
+package com.leilei.cropimg.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import com.leilei.cropimg.R;
 import com.leilei.cropimg.utils.FileUtils;
 import com.leilei.cropimg.widget.CropImageView;
 
