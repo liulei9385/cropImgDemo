@@ -6,8 +6,7 @@
     <com.leilei.cropimg.widget.CropImageView
             android:id="@+id/cropImg"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#000000"/>
+            android:layout_height="match_parent"/>
 
     <!--<EditText android:id="@+id/editText1"
               android:layout_width="match_parent"

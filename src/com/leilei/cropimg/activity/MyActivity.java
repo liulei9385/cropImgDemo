@@ -3,7 +3,6 @@ package com.leilei.cropimg.activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.internal.view.SupportMenuItem;
@@ -37,6 +36,7 @@ public class MyActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         if (sourceBitmap == null) {
+            System.out.println("MyActivity.onResume##process");
             Resources resources = getResources();
             DisplayMetrics displayMetrics = resources.getDisplayMetrics();
             int maxWidth = displayMetrics.widthPixels;
@@ -60,6 +60,9 @@ public class MyActivity extends BaseActivity {
         //crop
         if (item.getItemId() == 2) {
             showToast(item.toString(), true);
+            Rect rect = cropImageView.getCoverBounds();
+            System.out.println("MyActivity.onOptionsItemSelected##" + rect.toString());
+            cropImageView.drawPoints(new float[]{rect.left, rect.top});
             return true;
         } else if (item.getItemId() == 1) {
             //draw
@@ -132,7 +135,6 @@ public class MyActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        System.out.println("MyActivity.onDestroy##");
         if (sourceBitmap != null) {
             if (!sourceBitmap.isRecycled()) sourceBitmap.recycle();
             sourceBitmap = null;

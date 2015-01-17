@@ -361,6 +361,8 @@ public class CropImageView extends FrameLayout implements View.OnTouchListener {
         int resourceId = resources.getIdentifier("action_bar_default_height", "dimen", "android");
         if (resourceId > 0) {
             result = resources.getDimensionPixelSize(resourceId);
+        } else {
+            result = resources.getDimensionPixelSize(R.dimen.actionBarSize);
         }
         return result;
     }

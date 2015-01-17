@@ -3,6 +3,10 @@ package com.leilei.cropimg.utils;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.TypedValue;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * USER: liulei
@@ -14,6 +18,7 @@ public class BitmapUtils {
     private BitmapUtils() {
     }
 
+    @SuppressWarnings("deprecation")
     public static Bitmap decodeBitmap(Resources resources, int resId, int maxWidth, int maxHeight) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPurgeable = true;
@@ -23,8 +28,7 @@ public class BitmapUtils {
 
         options.inSampleSize = calculateInSampleSize(options, maxWidth, maxHeight);
         options.inJustDecodeBounds = false;
-
-        return BitmapFactory.decodeResource(resources, resId, options);
+        return BitmapFactory.decodeResource(resources, resId);
     }
 
     private static int calculateInSampleSize(BitmapFactory.Options options, int maxWidth, int maxHeight) {
