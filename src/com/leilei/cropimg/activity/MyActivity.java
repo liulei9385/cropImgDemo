@@ -1,15 +1,18 @@
 package com.leilei.cropimg.activity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
-import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.internal.view.SupportMenuItem;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 import com.leilei.cropimg.R;
+import com.leilei.cropimg.utils.BitmapUtils;
 import com.leilei.cropimg.utils.FileUtils;
 import com.leilei.cropimg.widget.CropImageView;
 
@@ -28,28 +31,29 @@ public class MyActivity extends BaseActivity {
 
         cropImageView = (CropImageView) findViewById(R.id.cropImg);
         drawRes = R.drawable.demo;
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         if (sourceBitmap == null) {
-            sourceBitmap = BitmapFactory.decodeResource(getResources(), drawRes);
+            Resources resources = getResources();
+            DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+            int maxWidth = displayMetrics.widthPixels;
+            int maxHeight = displayMetrics.heightPixels;
+            sourceBitmap = BitmapUtils.decodeBitmap(resources, drawRes, maxWidth, maxHeight);
         }
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem menuItem = menu.add(0, 2, 2, "crop");
-        MenuItem menuItem2 = menu.add(0, 1, 1, "draw");
-        if (Build.VERSION.SDK_INT >= 11) {
-            menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-            menuItem2.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        }
+        SupportMenuItem menuItem = (SupportMenuItem) menu.add(0, 2, 2, "crop");
+        SupportMenuItem menuItem2 = (SupportMenuItem) menu.add(0, 1, 1, "draw");
+        menuItem.setShowAsAction(SupportMenuItem.SHOW_AS_ACTION_ALWAYS);
+        menuItem2.setShowAsAction(SupportMenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

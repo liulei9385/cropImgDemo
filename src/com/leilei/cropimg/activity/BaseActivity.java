@@ -16,6 +16,15 @@ public class BaseActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initActionBar();
+    }
+
+    /**
+     * 初始化actionBar
+     */
+    private void initActionBar() {
         actionBar = getSupportActionBar();
+        //显示logo
+        actionBar.setDisplayUseLogoEnabled(true);
     }
 }
