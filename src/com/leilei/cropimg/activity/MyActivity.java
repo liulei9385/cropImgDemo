@@ -18,7 +18,6 @@ import com.leilei.cropimg.utils.FileUtils;
 import com.leilei.cropimg.widget.CropImageView;
 
 import java.io.File;
-import java.util.logging.Logger;
 
 public class MyActivity extends BaseActivity {
 

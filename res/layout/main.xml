@@ -3,15 +3,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimaryDark"/>
+
     <com.leilei.cropimg.widget.CropImageView
             android:id="@+id/cropImg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-
-    <!--<EditText android:id="@+id/editText1"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="#dddddd"
-              android:inputType="number"/>-->
 
 </RelativeLayout>
