@@ -5,8 +5,9 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v4.internal.view.SupportMenuItem;
-import android.support.v7.app.ActionBar;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +18,7 @@ import com.leilei.cropimg.utils.FileUtils;
 import com.leilei.cropimg.widget.CropImageView;
 
 import java.io.File;
+import java.util.logging.Logger;
 
 public class MyActivity extends BaseActivity {
 
@@ -29,8 +31,9 @@ public class MyActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-//        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setLogo(R.drawable.ic_launcher);
 
         cropImageView = (CropImageView) findViewById(R.id.cropImg);
         drawRes = R.drawable.demo;
@@ -80,11 +83,21 @@ public class MyActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void showToast(String text, boolean isLong) {
+    private void showToast(final String text, boolean isLong) {
         int duration = Toast.LENGTH_SHORT;
         if (isLong)
             duration = Toast.LENGTH_LONG;
-        Toast.makeText(this, text, duration).show();
+
+        final int duration2 = duration;
+        if (Looper.getMainLooper().getThread() == Thread.currentThread())
+            Toast.makeText(this, text, duration).show();
+        else new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @SuppressWarnings("ResourceType")
+            @Override
+            public void run() {
+                Toast.makeText(MyActivity.this, text, duration2).show();
+            }
+        });
     }
 
     private void drawCoverImage() {

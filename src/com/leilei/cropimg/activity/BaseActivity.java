@@ -24,7 +24,5 @@ public class BaseActivity extends ActionBarActivity {
      */
     private void initActionBar() {
         actionBar = getSupportActionBar();
-        //显示logo
-        actionBar.setDisplayUseLogoEnabled(true);
     }
 }
