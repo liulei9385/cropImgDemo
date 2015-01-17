@@ -61,7 +61,6 @@ public class MyActivity extends BaseActivity {
         if (item.getItemId() == 2) {
             showToast(item.toString(), true);
             Rect rect = cropImageView.getCoverBounds();
-            System.out.println("MyActivity.onOptionsItemSelected##" + rect.toString());
             cropImageView.drawPoints(new float[]{rect.left, rect.top});
             return true;
         } else if (item.getItemId() == 1) {
@@ -72,8 +71,6 @@ public class MyActivity extends BaseActivity {
                 showToast("超出剪裁区域!", true);
                 return false;
             }
-            cropImageView.drawPoints(new float[]{rect.left, rect.top});
-            cropImageView.drawPoints(new float[]{rect.right, rect.bottom});
             new Thread(new MyRunnable()).start();
             return true;
         }
