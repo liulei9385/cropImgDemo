@@ -29,7 +29,8 @@ public class MyActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        actionBar.setDisplayShowHomeEnabled(true);
+//        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
 
         cropImageView = (CropImageView) findViewById(R.id.cropImg);
         drawRes = R.drawable.demo;
