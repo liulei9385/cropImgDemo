@@ -22,8 +22,9 @@ public class DisplayActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("Display");
+
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Display");
 
         imageView = new ImageView(this);
         String filePath = getIntent().getStringExtra("filePath");

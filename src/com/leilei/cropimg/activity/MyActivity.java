@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.internal.view.SupportMenuItem;
+import android.support.v7.app.ActionBar;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +29,8 @@ public class MyActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        actionBar.setDisplayShowHomeEnabled(true);
+
         cropImageView = (CropImageView) findViewById(R.id.cropImg);
         drawRes = R.drawable.demo;
     }
@@ -36,7 +39,6 @@ public class MyActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         if (sourceBitmap == null) {
-            System.out.println("MyActivity.onResume##process");
             Resources resources = getResources();
             DisplayMetrics displayMetrics = resources.getDisplayMetrics();
             int maxWidth = displayMetrics.widthPixels;

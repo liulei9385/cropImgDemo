@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppBaseTheme" parent="Theme.AppCompat">
-        <item name="actionBarStyle">@style/ActionBarStyle</item>
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
+        <!--  <item name="actionBarStyle">@style/ActionBarStyle</item>
+          <item name="actionBarItemBackground">@drawable/actionbar_item</item>-->
         <item name="actionBarSize">@dimen/actionBarSize</item>
-        <item name="actionBarItemBackground">@drawable/actionbar_item</item>
     </style>
 
     <style name="ActionBarStyle" parent="Widget.AppCompat.ActionBar.Solid">
