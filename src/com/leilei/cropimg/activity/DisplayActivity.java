@@ -1,11 +1,8 @@
 package com.leilei.cropimg.activity;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.ViewGroup;
@@ -18,7 +15,7 @@ import com.leilei.cropimg.R;
  * DATA: 2015/1/16
  * TIME: 15:30
  */
-public class DisplayActivity extends Activity {
+public class DisplayActivity extends BaseActivity {
 
     private ImageView imageView;
 
@@ -26,13 +23,7 @@ public class DisplayActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("Display");
-
-        if (Build.VERSION.SDK_INT >= 11) {
-            ActionBar actionBar = getActionBar();
-            if (actionBar != null) {
-                actionBar.setDisplayHomeAsUpEnabled(true);
-            }
-        }
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         imageView = new ImageView(this);
         String filePath = getIntent().getStringExtra("filePath");

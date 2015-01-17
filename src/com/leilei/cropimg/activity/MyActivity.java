@@ -1,6 +1,5 @@
 package com.leilei.cropimg.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,7 +15,7 @@ import com.leilei.cropimg.widget.CropImageView;
 
 import java.io.File;
 
-public class MyActivity extends Activity {
+public class MyActivity extends BaseActivity {
 
     private CropImageView cropImageView;
     private int drawRes;
