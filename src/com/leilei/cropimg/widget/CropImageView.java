@@ -356,7 +356,7 @@ public class CropImageView extends FrameLayout implements View.OnTouchListener {
     }
 
     public static int getActionBarHeight(Context context) {
-        int result = 0;
+        int result;
         Resources resources = context.getResources();
         int resourceId = resources.getIdentifier("action_bar_default_height", "dimen", "android");
         if (resourceId > 0) {
