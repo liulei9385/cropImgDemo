@@ -8,7 +8,6 @@
 
     <style name="ActionBarStyle" parent="Widget.AppCompat.ActionBar.Solid">
         <item name="background">@color/actionBarBackground</item>
-
     </style>
 
     <style name="AppTheme" parent="AppBaseTheme">
