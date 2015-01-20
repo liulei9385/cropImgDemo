@@ -1,6 +1,5 @@
 package com.leilei.cropimg.activity;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -9,9 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.internal.view.SupportMenuItem;
-import android.support.v4.view.WindowCompat;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,14 +30,11 @@ public class MyActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         setContentView(R.layout.main);
 
-        //actionBar.setDisplayShowHomeEnabled(true);
-        //actionBar.setIcon(R.drawable.ic_launcher);
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.drawable.ic_launcher);
 
         cropImageView = (CropImageView) findViewById(R.id.cropImg);
         drawRes = R.drawable.demo;
